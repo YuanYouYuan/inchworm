@@ -1,8 +1,10 @@
-function [th, dth, ddth, t] = joint_trajectory(theta, time, partition, plot_figure)
-	t = time(1):partition:time(end);
+function [th, dth, ddth, t] = joint_trajectory(theta, time, plot_figure)
+	theta = theta*pi/180;
+	t = time(1):0.01:time(end);
 
 	for i = 1:size(theta,1)
-		spline_th   = spline(time, [0 theta(i,:) 0]);
+		spline_th   = spline(time, theta(i,:)); % natural boundary condition
+		% spline_th   = spline(time, [0 theta(i,:) 0]); % clamed boundary condition
 		spline_dth  = fnder (spline_th, 1);
 		spline_ddth = fnder (spline_th, 2);
 
