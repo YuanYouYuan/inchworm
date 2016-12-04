@@ -1,4 +1,6 @@
 close all;
 clear all;
-load data/test_flip_gait; % load theta, time
-[th, ~, ~] = joint_trajectory(theta, time);
+addpath('./function')
+load('./data/gaits/test_flip_gait.mat'); % load theta, time
+plot_figure = 1;
+[th, dth, ddth] = joint_trajectory(theta, time, plot_figure);
