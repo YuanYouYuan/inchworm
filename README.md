@@ -53,6 +53,7 @@ stand_up_gait
 | M6   | 0   | 90  | 90  | 90  |
 | M7   | 90  | 90  | 90  | -90 |
 
+Run the follwing code to plot the trajectory.
 ```matlab
 close all;
 clear all;
@@ -62,4 +63,5 @@ plot_figure = 1;
 [th, dth, ddth] = joint_trajectory(theta, time, plot_figure);
 ```
 
+![join_trajectory_sample](./matlab/pic/joint_trajectory_sample.jpg)
 
