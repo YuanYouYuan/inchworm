@@ -1,9 +1,13 @@
 # Servo motors
 
 There are totally 7 servo motors which are defined as M1~M7 in LabVIEW. 
+
 M1 and M7 are two small servo motors which handle the suction cup. 
+
 M2~M6 are normal-sized servo motors,
+
 M2 and M6 handles the rotation of the ankle. 
+
 M3~M5 are the theta1~theta3 in matlab which handle the bending of the body.
 
 # M2~M6 position table(degree - pwm)
@@ -22,5 +26,6 @@ M3~M5 are the theta1~theta3 in matlab which handle the bending of the body.
 | Motor | release | zero | adhere |
 |:-----:|:-------:|:----:|:------:|
 | M1    | 800     | 1800 | 2000   |
-| M2    | 1050    | 1830 | 2000   |
+| M7    | 1050    | 1830 | 2000   |
 
+Note that  release/adhere are defined as 90/-90 deg in LabVIEW respectively.
