@@ -21,11 +21,11 @@ M3~M5 are the theta1~theta3 in matlab which handle the bending of the body.
 | M6    | 1234   | 1524  | 1805    |
 
 
-# M1 and M7 are three states(release, zero and adhere)
+# M1 and M7 are only two states(release and adhere)
 
-| Motor | release | zero | adhere |
-|:-----:|:-------:|:----:|:------:|
-| M1    | 800     | 1800 | 2000   |
-| M7    | 1050    | 1830 | 2000   |
+| Motor | release | adhere |
+|:-----:|:-------:|:------:|
+| M1    | 800     | 2000   |
+| M7    | 1050    | 2000   |
 
 Note that  release/adhere are defined as 90/-90 deg in LabVIEW respectively.
