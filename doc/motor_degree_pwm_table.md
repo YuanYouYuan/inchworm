@@ -12,13 +12,13 @@ M3~M5 are the theta1~theta3 in matlab which handle the bending of the body.
 
 # M2~M6 position table(degree - pwm)
 
-| Motor | 90 deg | 0 deg | -90 deg |
-|:-----:|:------:|:-----:|:-------:|
-| M2    | 1230   | 1518  | 1810    |
-| M3    | 1860   | 1480  | 1075    |
-| M4    | 1756   | 1460  | 1180    |
-| M5    | 1870   | 1476  | 1090    |
-| M6    | 1234   | 1524  | 1805    |
+| Motor | 90 deg | 0 deg | -90 deg | slope  |
+|:-----:|:------:|:-----:|:-------:|:------:|
+| M2    | 1230   | 1518  | 1810    | -3.222 |
+| M3    | 1860   | 1480  | 1075    | 4.361  |
+| M4    | 1756   | 1460  | 1180    | 3.200  |
+| M5    | 1870   | 1476  | 1090    | 4.333  |
+| M6    | 1234   | 1524  | 1805    | -3.172 |
 
 
 # M1 and M7 are only two states(release and adhere)
