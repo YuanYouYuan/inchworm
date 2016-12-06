@@ -21,7 +21,7 @@ function [th, dth, ddth, t] = joint_trajectory(theta, time, plot_figure)
 	end
 
 	if exist('plot_figure', 'var') && plot_figure == 1
-		figure('Name', 'Joint Trajectory');
+		figure('Name', 'Joint Trajectory', 'Position', [100, 100, 1920, 1080]);
 		for i = 1:n
 			grid on;
 			subplot(3, n, i);
