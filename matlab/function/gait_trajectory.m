@@ -1,4 +1,7 @@
 function [] = gait_trajectory(gait_name, file_name)
+    if ~exist('file_name', 'var')
+        file_name = gait_name;
+    end
     load(['./data/gaits/' gait_name '.mat']); % load theta, time
     plot_figure = 1;
     [th, dth, ddth] = joint_trajectory(theta, time, plot_figure);
