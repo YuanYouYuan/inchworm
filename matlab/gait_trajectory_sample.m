@@ -1,4 +1,4 @@
 close all;
 clear all;
 addpath('./function')
-gait_trajectory('stand_up_gait', 'stand_up_gait')
+gait_trajectory('stand_up_gait')

@@ -1,4 +1,7 @@
 function [] = gait_animation(gait_name, video_name)
+    if ~exist('video_name', 'var')
+        video_name = gait_name;
+    end
     load(['./data/gaits/' gait_name '.mat']); % load time, theta
     load('./data/new_parameter.mat'); % load L
     vw = VideoWriter(['data/videos/' video_name '.avi']);
