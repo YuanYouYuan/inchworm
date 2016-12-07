@@ -9,8 +9,8 @@ function [th, dth, ddth, t] = joint_trajectory(theta, time, plot_figure)
 		% clamped boundary condition with initail/final velocity = 0
 		% spline_th   = spline(time, theta(i,:));       
 		% natural boundary condition
-		spline_th   = csape(time, theta(i,:), 'clamped', [0 0]);       
-		% spline_th   = csape(time, theta(i,:), 'second', [0 0]);       
+		% spline_th   = csape(time, theta(i,:), 'clamped', [0 0]);       
+		spline_th   = csape(time, theta(i,:), 'second', [0 0]);       
 		% spline_th   = csape(time, theta(i,:));       
 		spline_dth  = fnder (spline_th, 1);
 		spline_ddth = fnder (spline_th, 2);
@@ -18,8 +18,8 @@ function [th, dth, ddth, t] = joint_trajectory(theta, time, plot_figure)
 		th(i,:)   = ppval(spline_th,   t);
 		dth(i,:)  = ppval(spline_dth,  t);
 		ddth(i,:) = ppval(spline_ddth, t);
-	end
-
+    end
+    
 	if exist('plot_figure', 'var') && plot_figure == 1
 		figure('Name', 'Joint Trajectory', 'Position', [100, 100, 1920, 1080]);
 		for i = 1:n
