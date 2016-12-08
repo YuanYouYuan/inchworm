@@ -11,7 +11,10 @@ function [] = gait_trajectory(gait_name, plot_fig, file_name)
     [th, dth, ddth] = joint_trajectory(theta, time, plot_fig);
     th = th*180/pi;
     csvwrite(['./data/gaits/csv/' file_name '.csv'], th);
-    csvwrite(['R:\c\' file_name '.csv'], th);
+    if ispc
+        csvwrite(['R:\c\' file_name '.csv'], th);
+    end
+
     if plot_fig == 1
         saveas(gcf, ['./data/gaits/traj/' file_name '.png']);
     end
