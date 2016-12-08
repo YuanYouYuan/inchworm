@@ -20,32 +20,27 @@ function [th, dth, ddth, t] = joint_trajectory(theta, time, plot_figure)
 		ddth(i,:) = ppval(spline_ddth, t);
     end
     
+
 	if exist('plot_figure', 'var') && plot_figure == 1
-		figure('Name', 'Joint Trajectory', 'Position', [100, 100, 1920, 1080]);
+		figure('Name', 'Joint Trajectory', 'Position', [100, 100, 1600, 900]);
 		for i = 1:n
-			grid on;
-			subplot(3, n, i);
+            subplot_func(i, 1, th, '\theta(deg)');
 			plot(time, theta(i, :)*180/pi, 'o'); hold on;
-			plot(t, th(i,:)*180/pi); hold on;
-			title(['Joint' num2str(i)]);
-			xlabel('time(s)');
-			ylabel('\theta(deg)', 'FontSize', 14);
-			set(gca, 'xtick', time);
-			grid on;
-		
-			subplot(3, n, i+n);
-			plot(t, dth(i,:)), hold on;
-			xlabel('time(s)');
-			ylabel('\omega(rad/s)  ', 'FontSize', 14);
-			set(gca, 'xtick', time);
-			grid on;
-		
-			subplot(3, n, i+2*n);
-			plot(t, ddth(i,:)), hold on;
-			xlabel('time(s)');
-			ylabel('\alpha(rad/s^{2})', 'FontSize', 14);
-			set(gca, 'xtick', time);
-			grid on;
+            subplot_func(i, 2, dth, '\omega(rad/s)  ');
+            subplot_func(i, 3, ddth, '\alpha(rad/s^{2})');
 		end
 	end
+
+    function subplot_func(joint_number, row_number, var, var_name)
+        subplot(3, n, joint_number + (row_number - 1) * n);
+        plot(t, var(i,:)*180/pi); hold on;
+        title(['Joint' num2str(joint_number)]);
+        ax = gca;
+        ax.XLabel.String = 'time(s)';
+        ax.YLabel.String = var_name;
+        ax.YLabel.FontSize = 14;
+        ax.XTick = time;
+        grid on;
+    end
 end
+
