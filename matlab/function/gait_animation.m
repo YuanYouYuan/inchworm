@@ -44,8 +44,24 @@ function [] = gait_animation(gait_name, video_name)
         head_end_section(2) = joint(1) - j*(joint(2)-joint(1))/norm(joint(2)-joint(1)) * L(1);
         tail_end_section(1) = joint(5) + j*(joint(4)-joint(5))/norm(joint(4)-joint(5)) * L(1);
         tail_end_section(2) = joint(5) - j*(joint(4)-joint(5))/norm(joint(4)-joint(5)) * L(1);
-        plot(imag(head_end_section), real(head_end_section), 'b', 'LineWidth', 4);
-        plot(imag(tail_end_section), real(tail_end_section), 'b', 'LineWidth', 4);
+
+        % plot suction cup
+        if th(1, i) < 0
+            head_suction_cup_status = 'Red';
+        else
+            head_suction_cup_status = 'White';
+        end
+
+        if th(7, i) < 0
+            tail_suction_cup_status = 'Red';
+        else
+            tail_suction_cup_status = 'White';
+        end
+
+        plot(imag(head_end_section), real(head_end_section), 'bo-', 'LineWidth', 4, ...
+            'MarkerSize', 13, 'MarkerFaceColor', head_suction_cup_status);
+        plot(imag(tail_end_section), real(tail_end_section), 'bo-', 'LineWidth', 4, ...
+            'MarkerSize', 13, 'MarkerFaceColor', tail_suction_cup_status);
 
         % plot body
         plot(imag(joint), real(joint), 'bo-', 'LineWidth', 4, 'MarkerSize', 15, 'MarkerFaceColor', 'y');
