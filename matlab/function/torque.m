@@ -2,15 +2,15 @@ function torque = torque(th, dth, ddth)
 
 load('data/physical_parameter.mat');
 
-th1 = th(1,:);
-th2 = th(2,:);
-th3 = th(3,:);
-dth1 = dth(1,:);
-dth2 = dth(2,:);
-dth3 = dth(3,:);
-ddth1 = ddth(1,:);
-ddth2 = ddth(2,:);
-ddth3 = ddth(3,:);
+th1 = th(3,:);
+th2 = th(4,:);
+th3 = th(5,:);
+dth1 = dth(3,:);
+dth2 = dth(4,:);
+dth3 = dth(5,:);
+ddth1 = ddth(3,:);
+ddth2 = ddth(4,:);
+ddth3 = ddth(5,:);
 
 torque(1, :) = I1*ddth1 + L1^2*M2*ddth1 + L1^2*M3*ddth1 + L2^2*M3*ddth1 + L2^2*M3*ddth2 ...
 			+ M1*ddth1*X1^2 + M2*ddth1*X2^2 + M2*ddth2*X2^2 + M3*ddth1*X3^2 + M3*ddth2*X3^2 ...
