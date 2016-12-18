@@ -9,5 +9,4 @@ function [theta3, theta4, theta5] = in_workspace(th3, th4, th5)
             theta5 = [theta5 th5(i)];
         end
     end
-
 end
