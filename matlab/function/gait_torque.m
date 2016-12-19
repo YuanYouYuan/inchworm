@@ -17,7 +17,7 @@ function [] = gait_torque(gait_name, plot_fig)
 			ylabel('\tau(N*m)', 'FontSize', 14);
 			legend('torque', 'rated torque');
 		end
-        saveas(gcf, ['./data/gaits/torq' gait_name '.png']);
+        saveas(gcf, ['./data/gaits/torq/' gait_name '.png']);
 	end
 end
 
