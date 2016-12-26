@@ -23,6 +23,7 @@ function [] = gait_animation(gait_name, video_name)
 
     fig = gcf;
     fig.Position = [100, 100, 1600, 900];
+    fig.Visible = 'Off';
 
     for i =1:n
 
@@ -71,6 +72,7 @@ function [] = gait_animation(gait_name, video_name)
         text(0.35, 0.45, ['time(s): ' num2str(t(i))])
         frames(i) = getframe(gcf);
         cla;
+        disp(['Progress: ' num2str(i) '/' num2str(n)]);
     end
 
     vw.Quality = 100;
@@ -80,4 +82,5 @@ function [] = gait_animation(gait_name, video_name)
         writeVideo(vw, frames(i));
     end
     close(vw);
+    disp('gait animation done');
 end
