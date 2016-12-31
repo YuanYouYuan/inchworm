@@ -9,6 +9,8 @@ function inchworm = inchworm_model(theta, fixed_point)
         theta(3:5) = -1 * theta(3:5);
 
     end
+
+    theta = deg2rad(theta);
     
     % use complex number to represent joints
     j = sqrt(-1);
@@ -29,13 +31,12 @@ function inchworm = inchworm_model(theta, fixed_point)
     tail = xy(tail);
 
     % suction cup status, true means adhere
-    suction_cup = [(theta(1) < 0) (theta(7) < 0)]
+    suction_cup = [(theta(1) < 0) (theta(7) < 0)];
 
     % check whether touch the wall 
     if ~suction_cup(1) & suction_cup(2)
         if all(tail.x <= 0) 
             disp('===touch the wall===');
-            rad2deg(theta)
             fixed_point.is_switch = ~fixed_point.is_switch;
             fixed_point.x = 0;
             fixed_point.y = joint.y(end);

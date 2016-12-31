@@ -1,21 +1,19 @@
-function [] = gait_trajectory(gait_name, plot_fig, file_name)
-    if ~exist('file_name', 'var')
-        file_name = gait_name;
-    end
+function gait_traj = gait_trajectory(gait)
+    theta = gait.theta;
+    time  = gait.time;
+    name  = gait.name;
     
-    if ~exist('plot_fig', 'var')
-        plot_fig = 0;
+    for i = 1:size(theta, 1)
+        joint_traj = joint_trajectory(theta(i, :), time);
+        gait_traj.th(i, :)   = joint_traj.th;
+        gait_traj.dth(i, :)  = joint_traj.dth;
+        gait_traj.ddth(i, :) = joint_traj.ddth;
     end
-    
-    load(['./data/gaits/' gait_name '.mat']); % load theta, time
-    [th, dth, ddth] = joint_trajectory(theta, time, plot_fig);
-    th = th*180/pi;
-    csvwrite(['./data/gaits/csv/' file_name '.csv'], th);
-    if ispc
-        csvwrite(['R:\c\' file_name '.csv'], th);
-    end
+    gait_traj.t = joint_traj.t;
 
-    if plot_fig == 1
-        saveas(gcf, ['./data/gaits/traj/' file_name '.png']);
-    end
+    gait_traj.name  = name;
+    gait_traj.theta = theta;
+    gait_traj.time  = time;
+
+    save(['data/gaits/traj/' gait_traj.name], 'gait_traj');
 end

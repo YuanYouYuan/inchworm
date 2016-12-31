@@ -1,0 +1,19 @@
+function exceed = torque_exceed(torque, plot_figure)
+	rated_torq = (-25.8/(pi/3/0.18)*abs(dth)+25.8)*9.8*0.01;
+	exceed = abs(torque) > rated_torq*0.8;
+
+	if exist('plot_figure', 'var') && plot_figure == 1
+		figure('Name', 'torque')
+		for i = 1:size(torque, 1)
+			subplot(size(torque, 1), 1, i);
+			plot(t, torque(i, :)), hold on;
+			plot(t, rated_torque(i, :), 'r--'); hold on;
+			plot(t, -rated_torque(i, :), 'r--'); hold on;
+			title(['Joint' num2str(i)]);
+			xlabel('time(s)');
+			ylabel('\tau(N*m)', 'FontSize', 14);
+			legend('torque', 'rated torque');
+		end
+	end
+
+end
