@@ -2,9 +2,8 @@
 clear all;
 close all;
 load('./data/new_parameter.mat');
-L = [0.08,0.15,0.15,0.08];
 theta1 = 0:0.1:pi/2;
-theta2 = 0:0.1:130/180*pi;
+theta2 = 0:0.1:deg2rad(130);
 theta3 = 0:0.1:pi/2;
 
 [THETA1, THETA2, THETA3] = meshgrid(theta1, theta2, theta3);
@@ -13,15 +12,22 @@ X = L(2) * cos(pi/2 - THETA1) + L(3) * cos(pi/2 - THETA1 - THETA2) + L(4) * cos(
 Y = L(1) + L(2)* sin(pi/2 - THETA1) + L(3) * sin(pi/2 - THETA1 - THETA2) + L(4) * sin(pi/2 - THETA1 - THETA2 - THETA3);
 PHI = pi - THETA1 - THETA2 - THETA3;
 
-[m n l] = size(X);
-long = m*n*l;
-
+n = prod(size(X));
 X = reshape(X,[long,1]);
 Y = reshape(Y,[long,1]);
 PHI = reshape(PHI,[long,1]);
 THETA1 = reshape(THETA1,[long,1]);
 THETA2 = reshape(THETA2,[long,1]);
 THETA3 = reshape(THETA3,[long,1]);
+
+% delete the element if y coordinate is negative
+for i = 1:length(Y(:))
+    if Y(i) < 0
+
+    end
+end
+
+
 
 i = 1;
 while i <= long
