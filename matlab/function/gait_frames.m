@@ -3,6 +3,8 @@ function frames = gait_frames(gait_traj, initial_fixed_point)
     t  = gait_traj.t;
 
     fixed_point = initial_fixed_point;
+
+    figure('Name', gait_traj.name);
    
     for i=1:length(t)
         cla;

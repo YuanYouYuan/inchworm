@@ -9,6 +9,6 @@ function gait_torq = gait_torque(gait_traj)
     gait_torq.exceed = exceed;
     gait_torq.name = gait_traj.name;
 
-    save(['data/gaits/torq/' gait_traj.name], gait_torq);
+    save(['data/gaits/torq/' gait_traj.name], 'gait_torq');
 end
 
