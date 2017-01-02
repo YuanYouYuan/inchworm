@@ -3,8 +3,9 @@ function frames_gui
     close all;
     clear all;
 
-    % load('./concave_flip_gait.mat', 'frames');
-    load('./data/gaits/frames/flip_climb_up_gait.mat', 'frames');
+
+    gait_name = 'climb_up_plan';
+    load(['data/gaits/frames/' gait_name], 'frames') ;
 
     n = length(frames);
     f = figure;

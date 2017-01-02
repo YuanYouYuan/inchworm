@@ -3,7 +3,7 @@ close all;
 addpath('./function');
 
 % gait_name = 'concave_flip_gait';
-gait_name = 'flip_climb_up_gait';
+gait_name = 'climb_up_plan';
 gait = load(['data/gaits/' gait_name]) ;
 
 
