@@ -3,19 +3,23 @@ close all;
 addpath('./function');
 
 % gait_name = 'concave_flip_gait';
-gait_name = 'climb_up_plan';
+gait_name = 'opti_concave_flip_gait';
+% gait_name = 'opti_climb_up_plan';
+% gait_name = 'convex_flip_gait';
+% gait_name = 'opti_convex_flip_gait';
 gait = load(['data/gaits/' gait_name]) ;
 
 
 gait_traj = gait_trajectory(gait);
 gait_torq = gait_torque(gait_traj);
-% export_gait_traj(gait_traj); % export csv data of theta 
-plot_gait_traj(gait_traj);
+export_gait_traj(gait_traj); % export csv data of theta 
+% plot_gait_traj(gait_traj);
 % plot_gait_torq(gait_torq);
 
 % inchworm = inchworm_model(gait.theta(:, 1), fixed_point);
 % plot_inchworm(inchworm);
-% frames = gait_frames(gait_traj, gait.fixed_point);
+frames = gait_frames(gait_traj, gait.fixed_point);
+frames_gui(gait_name);
 
 % load(['data/gaits/frames/' gait_name])
 % save_gait_animation(frames, 'testtest');
