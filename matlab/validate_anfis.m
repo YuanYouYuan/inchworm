@@ -2,9 +2,9 @@ clear all;
 close all;
 addpath('./function');
 
-th1_range = -pi/2:0.1:pi/2;
-th2_range = -deg2rad(130):0.1:deg2rad(130);
-th3_range = -pi/2:0.1:pi/2;
+th1_range = 0:0.1:pi/2;
+th2_range = 0:0.1:pi/2;
+th3_range = 0:0.1:pi/2;
 
 [th1, th2, th3] = meshgrid(th1_range, th2_range, th3_range);
 th1 = th1(:);

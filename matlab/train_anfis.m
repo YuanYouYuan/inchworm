@@ -24,15 +24,15 @@ for i = 1:length(y(:))
     end
 end
 
-plot(var_cartesian(:, 1), var_cartesian(:, 2), 'o');
-hold on;
-t = 0:0.01:0.17;
-plot(t, parab_boundary(t), 'o-');
-axis equal;
+% plot(var_cartesian(:, 1), var_cartesian(:, 2), 'o');
+% hold on;
+% t = 0:0.01:0.17;
+% plot(t, parab_boundary(t), 'o-');
+% axis equal;
 
 for i = 1:3
     disp(['train the data ' num2str(i)]);
     data = [var_cartesian, var_joint(:, i)];
-    trained_anfis.(['anfis' num2str(i)]) = anfis(data, 3, [2, 0, 0.01, 0.9, 1.1], [1, 1, 1, 1]);
+    trained_anfis.(['anfis' num2str(i)]) = anfis(data, 9, [20, 0, 0.01, 0.9, 1.1], [1, 1, 1, 1]);
     save('./data/trained_anfis.mat', 'trained_anfis');
 end

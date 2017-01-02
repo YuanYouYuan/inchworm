@@ -1,0 +1,15 @@
+XYP = [0.3621-0.15 0 0;0.3-0.15 0.2 pi/2;0.2-0.15 0.3 pi;0.1-0.15 0.4 -pi/2;0-0.15 0.4 -pi/2];
+[th,t] = anfis_IK(XYP);
+th = rad2deg(th);
+joint_1 = [-90 -90 -90 -90 90];
+joint_2 = 90*ones(1,5);
+joint_6 = 90*ones(1,5);
+joint_7 = [90 90 90 -90 -90];
+theta = [joint_1;joint_2;th;joint_6;joint_7];
+time = 1:5;
+name = 'climb_up_plan';
+fixed_point.x = 0.15;
+fixed_point.y = 0;
+fixed_point.rotation = 0;
+fixed_point.is_switch = 0;
+save('climb_up_plan.mat','theta','time','name','fixed_point');
