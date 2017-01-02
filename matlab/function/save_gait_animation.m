@@ -1,5 +1,5 @@
-function save_gait_animation(frames, file_name)
-    vw = VideoWriter(['data/videos/' file_name '.avi']);
+function save_gait_animation(frames, gait)
+    vw = VideoWriter(['data/videos/' gait.name '.avi']);
     vw.Quality = 100;
     vw.FrameRate = 100;
     open(vw);

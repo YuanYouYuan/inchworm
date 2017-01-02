@@ -15,6 +15,11 @@ L1 = L(2); L2 = L(3); L3 = L(4);
 M1 = M(2); M2 = M(3); M3 = M(4);
 X1 = X(2); X2 = X(3); X3 = X(4);
 
+% let dth ddth = 0 if in static status
+dth1 = 0; dth2 = 0; dth3 = 0;
+ddth1 = 0; ddth2 = 0; ddth3 = 0;
+
+
 % position of mass center
 p1y = X1*cos(th1);
 p1x = X1*sin(th1);
