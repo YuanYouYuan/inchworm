@@ -1,14 +1,14 @@
 addpath('./function')
-x = [0.3621 0.3 0.2];
+x = [0.3621 0.36 0.3 0.2];
 [~,flip_number] = size(x);
 line_number = 10;
-x_line = linspace(0.1,0,line_number);
+x_line = linspace(0.1,-0.03,line_number);
 x = [x x_line]';
 x = x-0.15;
-y = [0 0.2 0.3];
+y = [0 0.1 0.2 0.3];
 y_line = 0.4*ones(1,line_number);
 y = [y y_line]';
-phi = [0 pi/2 pi];
+phi = [0 pi/4 pi/2 pi];
 phi_line = -pi/2*ones(1,line_number);
 phi = [phi phi_line]';
 
@@ -19,9 +19,9 @@ total_number = flip_number+line_number;
 joint_1 = [-90*ones(1,total_number-1) 90];
 joint_2 = 90*ones(1,total_number);
 joint_6 = 90*ones(1,total_number);
-joint_7 = [90*ones(1,flip_number) -90*ones(1,line_number)];
+joint_7 = [90*ones(1,flip_number-2) -90*ones(1,line_number+2)];
 theta = [joint_1;joint_2;th;joint_6;joint_7];
-time = [1:flip_number linspace(flip_number+1,flip_number+2,line_number)];
+time = [1 1.5 2 3 linspace(flip_number+1,flip_number+2,line_number)];
 name = 'climb_up_plan';
 fixed_point.x = 0.15;
 fixed_point.y = 0;
