@@ -11,12 +11,15 @@ for k = 2:4
 end
 
 
-eq(1) = x == imag(joint(end))
-eq(2) = y == real(joint(end))
+eq1 = x == imag(joint(end));
+eq2 = y == real(joint(end));
 % eq(3) = phi*pi/180 == pi - sum(th)
 P = load('./data/new_parameter');
-eq = subs(eq, L, P.L);
-eq = subs(eq, th(3), phi)
+eq1 = subs(eq1, L, P.L);
+eq1 = subs(eq1, th(3), pi - phi - th(1) - th(2))
+eq2 = subs(eq2, L, P.L);
+eq2 = subs(eq2, th(3), pi - phi - th(1) - th(2))
+solve([eq1 eq2], th(1:2));
 % [theta3, theta4] = solve(eq, th(1:2))
 % [theta3, theta4, theta5] = solve(eq, th);
 % 
