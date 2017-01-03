@@ -13,11 +13,13 @@ end
 
 eq(1) = x == imag(joint(end))
 eq(2) = y == real(joint(end))
-eq(3) = phi*pi/180 == pi - sum(th)
+% eq(3) = phi*pi/180 == pi - sum(th)
 P = load('./data/new_parameter');
 eq = subs(eq, L, P.L);
-[theta3, theta4, theta5] = solve(eq, th);
-
-theta3 = double(theta3)*180/pi;
-theta4 = double(theta4)*180/pi;
-theta5 = double(theta5)*180/pi;
+eq = subs(eq, th(3), phi)
+% [theta3, theta4] = solve(eq, th(1:2))
+% [theta3, theta4, theta5] = solve(eq, th);
+% 
+% theta3 = double(theta3)*180/pi;
+% theta4 = double(theta4)*180/pi;
+% theta5 = double(theta5)*180/pi;

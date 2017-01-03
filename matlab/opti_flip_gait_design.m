@@ -2,7 +2,8 @@ close all;
 clear all;
 addpath('./function');
 
-gait_name = 'concave_flip_gait'
+% gait_name = 'concave_flip_gait'
+gait_name = 'concave_flip_gait_shrink'
 % gait_name = 'climb_up_plan'
 % gait_name = 'convex_flip_gait'
 gait = load(['./data/gaits/' gait_name]);

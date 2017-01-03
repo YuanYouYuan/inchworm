@@ -2,11 +2,16 @@ clear all;
 close all;
 addpath('./function');
 
-% gait_name = 'concave_flip_gait';
-gait_name = 'opti_concave_flip_gait';
-% gait_name = 'opti_climb_up_plan';
-% gait_name = 'convex_flip_gait';
-% gait_name = 'opti_convex_flip_gait';
+% gait_name = 'concave_flip_gait'
+% gait_name = 'opti_concave_flip_gait'
+
+gait_name = 'concave_flip_gait_shrink'
+% gait_name = 'opti_concave_flip_gait_shrink'
+
+% gait_name = 'convex_flip_gait'
+% gait_name = 'opti_convex_flip_gait'
+
+% gait_name = 'opti_climb_up_plan'
 gait = load(['data/gaits/' gait_name]) ;
 
 
