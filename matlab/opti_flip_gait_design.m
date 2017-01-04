@@ -12,6 +12,8 @@ gait = load(['./data/gaits/' gait_name]);
 % gait_torq = gait_torque(gait_traj);
 % plot_gait_torq(gait_torq);
 
+theta(:, 1) = []
+
 
 % save the opti result to new gait
 name = ['opti_' gait_name];

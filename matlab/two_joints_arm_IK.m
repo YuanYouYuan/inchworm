@@ -9,7 +9,7 @@ gamma = acos((R^2 - L2^2 - L3^2)/(2*L2*L3));
 alpha = asin(L3*sin(gamma)/R);
 beta = asin(L2*sin(gamma)/R);
 
-theta = atan2(x, y-L1);
+theta = atan2(y-L1, x);
 theta1_1 = pi/2 - theta - alpha;
 theta2_1 = alpha + beta;
 
