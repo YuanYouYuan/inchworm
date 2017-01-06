@@ -1,4 +1,4 @@
-function [th1, th2, th3] = explicit_IK(x, y, phi)
+function [th1, th2, th3] = IK(x, y, phi)
 
     load('./data/new_parameter.mat', 'L');
     L1 = L(1); L2 = L(2); L3 = L(3); L4 = L(4);
