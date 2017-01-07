@@ -8,9 +8,9 @@ function exceed = theta_in_workspace(th1, th2, th3)
 
     exceed  = all(exceed);
 
-    [x, y, phi] = FK(th1, th2, th3);
-    if y < 0
-        disp('collide with the ground');
-        exceed = true;
-    end
+    % [x, y, phi] = FK(th1, th2, th3);
+    % if y < 0
+    %     disp('collide with the ground');
+    %     exceed = true;
+    % end
 end
